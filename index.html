@@ -1,350 +1,872 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness Icon | Premium Fitness Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+<title>Fitness Icon | Premium Fitness Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#080808;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,5,5,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#ff3131;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:#bbb;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=2000&q=90")
+    center/cover;
+}
+
+.hero-content{
+    max-width:750px;
+    padding-top:80px;
+}
+
+.tag{
+    display:inline-block;
+    padding:9px 15px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+    color:#ddd;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+    background:rgba(255,255,255,.05);
+}
+
+.hero h1{
+    font-size:clamp(52px,8vw,100px);
+    line-height:.95;
+    letter-spacing:-5px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#ff3131;
+}
+
+.hero p{
+    color:#c5c5c5;
+    font-size:18px;
+    line-height:1.7;
+    max-width:590px;
+    margin:28px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 25px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.primary{
+    background:#ff3131;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(255,49,49,.25);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.05);
+}
+
+.secondary:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* STATS */
+
+.stats{
+    background:#0d0d0d;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    padding:35px 20px;
+    text-align:center;
+    border-right:1px solid #222;
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat h3{
+    font-size:30px;
+}
+
+.stat p{
+    color:#777;
+    margin-top:5px;
+    font-size:13px;
+}
+
+/* SECTION */
+
+section{
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:#ff3131;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.section-title h2{
+    font-size:clamp(35px,5vw,55px);
+    margin-top:12px;
+    letter-spacing:-2px;
+}
+
+.section-title p{
+    color:#888;
+    max-width:550px;
+    margin:15px auto 0;
+}
+
+/* PROGRAMS */
+
+.programs{
+    background:#080808;
+}
+
+.program-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.program{
+    min-height:380px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    background-size:cover;
+    background-position:center;
+    transition:.4s;
+}
+
+.program:hover{
+    transform:translateY(-8px);
+}
+
+.program:nth-child(1){
+    background-image:
+    linear-gradient(transparent,#000),
+    url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=85");
+}
+
+.program:nth-child(2){
+    background-image:
+    linear-gradient(transparent,#000),
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85");
+}
+
+.program:nth-child(3){
+    background-image:
+    linear-gradient(transparent,#000),
+    url("https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=85");
+}
+
+.program-content{
+    padding:28px;
+}
+
+.program-content h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.program-content p{
+    color:#bbb;
+    font-size:14px;
+}
+
+/* ABOUT */
+
+.about{
+    background:#0d0d0d;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-image{
+    height:520px;
+    border-radius:20px;
+    background:
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.3)),
+    url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=90")
+    center/cover;
+}
+
+.about-text small{
+    color:#ff3131;
+    letter-spacing:3px;
+}
+
+.about-text h2{
+    font-size:48px;
+    line-height:1.05;
+    margin:15px 0 25px;
+}
+
+.about-text p{
+    color:#999;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.feature{
+    padding:18px;
+    border:1px solid #222;
+    border-radius:10px;
+    background:#111;
+}
+
+.feature strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.feature span{
+    color:#777;
+    font-size:12px;
+}
+
+/* PRICING */
+
+.pricing{
+    background:#080808;
+}
+
+.price-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    background:#101010;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:35px;
+    position:relative;
+    transition:.3s;
+}
+
+.price-card:hover{
+    transform:translateY(-7px);
+}
+
+.price-card.featured{
+    border:1px solid #ff3131;
+    background:linear-gradient(145deg,#171717,#0d0d0d);
+}
+
+.badge{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:#ff3131;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:800;
+}
+
+.price-card h3{
+    font-size:21px;
+}
+
+.price{
+    font-size:42px;
+    font-weight:900;
+    margin:20px 0;
+}
+
+.price span{
+    color:#666;
+    font-size:13px;
+    font-weight:400;
+}
+
+.price-card ul{
+    list-style:none;
+    margin:25px 0;
+}
+
+.price-card li{
+    color:#999;
+    padding:10px 0;
+    border-bottom:1px solid #1d1d1d;
+    font-size:14px;
+}
+
+.price-card li::before{
+    content:"✓";
+    color:#ff3131;
+    margin-right:10px;
+}
+
+/* CTA */
+
+.cta{
+    margin:0 auto;
+    width:90%;
+    max-width:1200px;
+    border-radius:25px;
+    padding:80px 40px;
+    text-align:center;
+    background:
+    linear-gradient(rgba(255,0,0,.2),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.cta h2{
+    font-size:clamp(35px,5vw,60px);
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:650px;
+    margin:auto;
+    padding:40px;
+    border:1px solid #222;
+    border-radius:18px;
+    background:#101010;
+}
+
+.contact-box p{
+    color:#aaa;
+    margin:12px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid #222;
+    text-align:center;
+    color:#666;
+    font-size:13px;
+}
+
+footer strong{
+    color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
     }
 
-    body {
-      background: #111;
-      color: white;
-      line-height: 1.6;
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    header {
-      background: #000;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .program-grid,
+    .price-grid{
+        grid-template-columns:1fr;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #ff3b30;
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:35px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 15px;
+    .about-image{
+        height:400px;
     }
 
-    nav a:hover {
-      color: #ff3b30;
+    .about-text h2{
+        font-size:38px;
     }
 
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      padding: 60px 8%;
-      background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
-        linear-gradient(135deg, #222, #111);
+    section{
+        padding:80px 0;
     }
 
-    .hero-content {
-      max-width: 650px;
+    .hero h1{
+        letter-spacing:-3px;
+    }
+}
+
+@media(max-width:500px){
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 80px);
-      line-height: 1;
-      margin-bottom: 20px;
+    .stat{
+        padding:25px 10px;
     }
 
-    .hero h1 span {
-      color: #ff3b30;
+    .hero{
+        min-height:90vh;
     }
 
-    .hero p {
-      color: #ddd;
-      font-size: 18px;
-      margin-bottom: 30px;
+    .hero p{
+        font-size:15px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      background: #ff3b30;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-right: 10px;
+    .cta{
+        padding:60px 20px;
     }
-
-    .btn:hover {
-      background: #d92c23;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #fff;
-    }
-
-    section {
-      padding: 70px 8%;
-    }
-
-    .title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .title h2 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .title p {
-      color: #aaa;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #1d1d1d;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #ff3b30;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #aaa;
-    }
-
-    .price {
-      font-size: 35px;
-      font-weight: bold;
-      margin: 15px 0;
-      color: #ff3b30;
-    }
-
-    .about {
-      background: #181818;
-    }
-
-    .about-box {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .about-box p {
-      color: #ccc;
-      font-size: 17px;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact-box {
-      max-width: 600px;
-      margin: auto;
-      background: #1d1d1d;
-      padding: 35px;
-      border-radius: 12px;
-    }
-
-    .contact-box p {
-      margin: 10px 0;
-      color: #ccc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #000;
-      color: #888;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      nav a {
-        margin: 0 7px;
-      }
-
-      .hero {
-        min-height: 75vh;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">FITNESS ICON</div>
+<div class="container nav">
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#programs">Programs</a>
-    <a href="#plans">Plans</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#" class="logo">FITNESS<span>ICON</span></a>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#programs">Programs</a>
+<a href="#about">About</a>
+<a href="#pricing">Membership</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>BUILD YOUR<br><span>STRONGER</span> SELF.</h1>
 
-    <p>
-      Train smarter. Get stronger. Become the best version of yourself
-      with Fitness Icon.
-    </p>
+<div class="container">
 
-    <a href="#plans" class="btn">View Plans</a>
-    <a href="#contact" class="btn btn-outline">Contact Us</a>
-  </div>
+<div class="hero-content">
+
+<div class="tag">Premium Fitness Experience</div>
+
+<h1>
+BUILD<br>
+YOUR <span>POWER.</span>
+</h1>
+
+<p>
+Train with purpose. Push your limits. Build a stronger
+body and a stronger mindset at Fitness Icon.
+</p>
+
+<div class="buttons">
+<a href="#pricing" class="btn primary">Explore Membership</a>
+<a href="#programs" class="btn secondary">View Programs</a>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="programs">
-  <div class="title">
-    <h2>Our Programs</h2>
-    <p>Training designed for your goals.</p>
-  </div>
 
-  <div class="cards">
+<!-- STATS -->
 
-    <div class="card">
-      <h3>Strength Training</h3>
-      <p>
-        Build strength and improve your overall fitness with structured
-        resistance training.
-      </p>
-    </div>
+<div class="stats">
 
-    <div class="card">
-      <h3>Personal Training</h3>
-      <p>
-        Get focused guidance and a training plan designed around your goals.
-      </p>
-    </div>
+<div class="container stats-grid">
 
-    <div class="card">
-      <h3>Cardio Fitness</h3>
-      <p>
-        Improve endurance and energy with effective cardio workouts.
-      </p>
-    </div>
+<div class="stat">
+<h3>5K+</h3>
+<p>Members</p>
+</div>
 
-    <div class="card">
-      <h3>Functional Training</h3>
-      <p>
-        Improve movement, mobility, balance and everyday performance.
-      </p>
-    </div>
+<div class="stat">
+<h3>20+</h3>
+<p>Expert Trainers</p>
+</div>
 
-  </div>
+<div class="stat">
+<h3>50+</h3>
+<p>Equipment</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Fitness Lifestyle</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PROGRAMS -->
+
+<section class="programs" id="programs">
+
+<div class="container">
+
+<div class="section-title">
+<small>Train Different</small>
+<h2>Choose Your Program</h2>
+<p>
+Professional training programs designed to help you
+perform at your best.
+</p>
+</div>
+
+<div class="program-grid">
+
+<div class="program">
+<div class="program-content">
+<h3>Strength Training</h3>
+<p>Build power, strength and confidence.</p>
+</div>
+</div>
+
+<div class="program">
+<div class="program-content">
+<h3>Muscle Building</h3>
+<p>Structured training for serious progress.</p>
+</div>
+</div>
+
+<div class="program">
+<div class="program-content">
+<h3>Personal Training</h3>
+<p>One-to-one coaching built around you.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="title">
-    <h2>Why Fitness Icon?</h2>
-  </div>
 
-  <div class="about-box">
-    <p>
-      Fitness Icon is built around quality training, modern equipment,
-      supportive coaching and a motivating environment. Whether you're
-      starting your fitness journey or looking to improve your performance,
-      our programs are designed to help you stay consistent.
-    </p>
-  </div>
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-image"></div>
+
+<div class="about-text">
+
+<small>THE FITNESS ICON DIFFERENCE</small>
+
+<h2>
+MORE THAN A GYM.<br>
+A BETTER YOU.
+</h2>
+
+<p>
+Fitness Icon combines premium equipment, expert coaching
+and a motivating environment to create a complete fitness
+experience.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<strong>Premium Equipment</strong>
+<span>Modern training equipment</span>
+</div>
+
+<div class="feature">
+<strong>Expert Coaches</strong>
+<span>Professional guidance</span>
+</div>
+
+<div class="feature">
+<strong>Modern Space</strong>
+<span>Designed for performance</span>
+</div>
+
+<div class="feature">
+<strong>Community</strong>
+<span>Train with motivated people</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="plans">
-  <div class="title">
-    <h2>Membership Plans</h2>
-    <p>Choose a plan that works for you.</p>
-  </div>
 
-  <div class="cards">
+<!-- PRICING -->
 
-    <div class="card">
-      <h3>Basic</h3>
-      <div class="price">₹999</div>
-      <p>Monthly membership</p>
-      <br>
-      <a href="#contact" class="btn">Join Now</a>
-    </div>
+<section class="pricing" id="pricing">
 
-    <div class="card">
-      <h3>Premium</h3>
-      <div class="price">₹1,999</div>
-      <p>Monthly membership + personal guidance</p>
-      <br>
-      <a href="#contact" class="btn">Join Now</a>
-    </div>
+<div class="container">
 
-    <div class="card">
-      <h3>Elite</h3>
-      <div class="price">₹2,999</div>
-      <p>Premium training and personal coaching</p>
-      <br>
-      <a href="#contact" class="btn">Join Now</a>
-    </div>
+<div class="section-title">
+<small>Membership</small>
+<h2>Choose Your Level</h2>
+<p>Simple plans. Serious results.</p>
+</div>
 
-  </div>
+<div class="price-grid">
+
+<div class="price-card">
+
+<h3>STARTER</h3>
+
+<div class="price">
+₹999 <span>/ month</span>
+</div>
+
+<ul>
+<li>Gym Access</li>
+<li>Basic Equipment</li>
+<li>Locker Access</li>
+<li>Fitness Assessment</li>
+</ul>
+
+<a href="#contact" class="btn secondary">Get Started</a>
+
+</div>
+
+
+<div class="price-card featured">
+
+<div class="badge">POPULAR</div>
+
+<h3>PRO</h3>
+
+<div class="price">
+₹1,999 <span>/ month</span>
+</div>
+
+<ul>
+<li>Unlimited Gym Access</li>
+<li>Personal Guidance</li>
+<li>Fitness Assessment</li>
+<li>Workout Planning</li>
+</ul>
+
+<a href="#contact" class="btn primary">Choose Pro</a>
+
+</div>
+
+
+<div class="price-card">
+
+<h3>ELITE</h3>
+
+<div class="price">
+₹2,999 <span>/ month</span>
+</div>
+
+<ul>
+<li>Unlimited Access</li>
+<li>Personal Trainer</li>
+<li>Custom Workout Plan</li>
+<li>Priority Support</li>
+</ul>
+
+<a href="#contact" class="btn secondary">Go Elite</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+<h2>READY TO LEVEL UP?</h2>
+
+<p>
+Your strongest version starts with your next workout.
+</p>
+
+<a href="#contact" class="btn primary">Start Your Journey</a>
+
+</div>
+
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
-  <div class="title">
-    <h2>Contact Fitness Icon</h2>
-    <p>Start your fitness journey today.</p>
-  </div>
 
-  <div class="contact-box">
-    <p><strong>📍 Location:</strong> Patna, Bihar</p>
-    <p><strong>📞 Phone:</strong> +91 XXXXX XXXXX</p>
-    <p><strong>📧 Email:</strong> info@fitnessicon.com</p>
+<div class="container">
 
-    <br>
+<div class="section-title">
+<small>Get In Touch</small>
+<h2>Let's Get Started</h2>
+</div>
 
-    <a href="mailto:info@fitnessicon.com" class="btn">
-      Contact Us
-    </a>
-  </div>
+<div class="contact-box">
+
+<p>📍 Patna, Bihar</p>
+<p>📞 +91 XXXXX XXXXX</p>
+<p>✉️ info@fitnessicon.com</p>
+
+<br>
+
+<a href="mailto:info@fitnessicon.com" class="btn primary">
+Contact Fitness Icon
+</a>
+
+</div>
+
+</div>
+
 </section>
 
+
 <footer>
-  © 2026 Fitness Icon. All Rights Reserved.
+
+<p>
+© 2026 <strong>Fitness Icon</strong>. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
-      </html>
+  </html>
+      
